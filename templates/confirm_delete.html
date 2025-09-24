@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>O‘chirishni tasdiqlash</title>
+</head>
+<body>
+    <h1>O‘chirishni xohlaysizmi?</h1>
+    <p>{{ object }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Ha, o‘chirilsin</button>
+        <a href="{% url 'home' %}">Bekor qilish</a>
+    </form>
+</body>
+</html>

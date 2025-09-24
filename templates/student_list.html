@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Talabalar</title>
+</head>
+<body>
+    <h1>Hamma talabalar</h1>
+    <ul>
+        {% for student in students %}
+            <li>
+                <a href="{% url 'student_detail' student.id %}">{{ student.ism }}</a>
+                ({{ student.kurs }}-kurs, {{ student.yosh }} yosh)
+                <a href="{% url 'student_update' student.id %}">✏️</a>
+                <a href="{% url 'student_delete' student.id %}">❌</a>
+            </li>
+        {% empty %}
+            <li>Talabalar mavjud emas</li>
+        {% endfor %}
+    </ul>
+
+    <h2>➕ Yangi talaba qo‘shish</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Qo‘shish</button>
+    </form>
+</body>
+</html>

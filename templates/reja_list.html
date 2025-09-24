@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejalar</title>
+</head>
+<body>
+    <h1>Hamma rejalar</h1>
+    <ul>
+        {% for reja in rejalar %}
+            <li>
+                {{ reja.sarlavha }} — {{ reja.student.ism }}
+                {% if reja.bajarildi %} ✅ {% else %} ❌ {% endif %}
+                <a href="{% url 'reja_update' reja.id %}">✏️</a>
+                <a href="{% url 'reja_delete' reja.id %}">❌</a>
+            </li>
+        {% empty %}
+            <li>Rejalar yo‘q</li>
+        {% endfor %}
+    </ul>
+
+    <h2>➕ Yangi reja qo‘shish</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Qo‘shish</button>
+    </form>
+</body>
+</html>
