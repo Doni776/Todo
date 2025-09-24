@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Bajarilmagan rejalar</title>
 </head>
 <body>
     <h1>Bajarilmagan rejalar</h1>
-
     <ul>
-        {% for reja in rejalar %}
-            <li><strong>{{ reja.sarlavha }}</strong> — {{ reja.student.ism }} ❌</li>
+        {% for r in rejalari %}
+            <li>{{ r.sarlavha }} — Student: {{ r.student.ism }}</li>
         {% empty %}
             <li>Bajarilmagan reja yo‘q</li>
         {% endfor %}
     </ul>
-
-    <p><a href="{% url 'home' %}">⬅️ Bosh sahifaga qaytish</a></p>
+    <a href="{% url 'home' %}">⬅️ Bosh sahifa</a>
 </body>
 </html>

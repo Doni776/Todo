@@ -8,28 +8,24 @@ urlpatterns = [
     # 1. Bosh sahifa
     path('', home, name='home'),
 
-    # 2. Hamma studentlar
+    # 2. Hamma studentlar (ism link bo‘ladi)
     path('studentlar/', student_list, name='student_list'),
+    path('student/<int:pk>/', student_detail, name='student_detail'),
 
-
-    # 3. Hamma rejalar
+    # 3. Hamma rejalar (form orqali qo‘shish, yonida o‘chirish)
     path('rejalar/', reja_list, name='reja_list'),
-
-    # 4. Bajarilmagan rejalar
-    path('bajarilmagan-rejalar/', bajarilmagan_rejalar, name='bajarilmagan_rejalar'),
-
-    # 5. Bitiruvchilar (kurs >= 3)
-    path('bitiruvchilar/', bitiruvchilar, name='bitiruvchilar'),
-
-    # 6. Reja o‘chirish
     path('reja/<int:pk>/delete/', reja_delete, name='reja_delete'),
 
+    # 4. Bajarilmagan rejalar
+    path('rejalar/bajarilmagan/', bajarilmagan_rejalar, name='bajarilmagan_rejalar'),
 
-    # 8. Yoshi 20 dan katta studentlar
-    path('studentlar/kattalar/', kattalar, name='kattalar'),
+    # 5. 3 va 4 kurs talabalar
+    path('studentlar/kurs-3-4/', kurs_3_4_students, name='kurs_3_4_students'),
 
-    # 9. Bitiruvchilar rejalari
-    path('bitiruvchilar/rejalari/', bitiruvchilar_rejalari, name='bitiruvchilar_rejalari'),
-    path('talaba/<int:talaba_id>/', student_detail, name='student_detail'),
+    # 6. Yoshi 20 dan baland talabalar
+    path('studentlar/yoshi-20dan-baland/', yoshi_20dan_baland_students, name='yoshi_20dan_baland_students'),
 
+    # 7. Kursi 4 bo‘lgan talabalar
+    path('studentlar/kurs-4/', kurs_4_students, name='kurs_4_students'),
 ]
+

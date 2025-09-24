@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>20 yoshdan baland talabalar</title>
+</head>
+<body>
+    <h1>20 yoshdan baland talabalar</h1>
+    <ul>
+        {% for s in students %}
+            <li>{{ s.ism }} — Yosh: {{ s.yosh }}</li>
+        {% empty %}
+            <li>Talaba yo‘q</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">⬅️ Bosh sahifa</a>
+</body>
+</html>

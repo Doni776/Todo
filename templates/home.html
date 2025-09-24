@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Bosh sahifa</title>
@@ -7,12 +7,12 @@
 <body>
     <h1>Bosh sahifa</h1>
     <ul>
-        <li><a href="{% url 'student_list' %}">Talabalar</a></li>
-        <li><a href="{% url 'reja_list' %}">Rejalar</a></li>
+        <li><a href="{% url 'student_list' %}">Hamma studentlar</a></li>
+        <li><a href="{% url 'reja_list' %}">Hamma rejalar</a></li>
         <li><a href="{% url 'bajarilmagan_rejalar' %}">Bajarilmagan rejalar</a></li>
-        <li><a href="{% url 'bitiruvchilar' %}">Bitiruvchilar</a></li>
-        <li><a href="{% url 'kattalar' %}">20+ yoshdagi talabalar</a></li>
-        <li><a href="{% url 'bitiruvchilar_rejalari' %}">Bitiruvchilar rejalarini ko‘rish</a></li>
+        <li><a href="{% url 'kurs_3_4_students' %}">3 va 4 kurs studentlari</a></li>
+        <li><a href="{% url 'yoshi_20dan_baland_students' %}">20 yoshdan kattalar</a></li>
+        <li><a href="{% url 'kurs_4_students' %}">Faqat 4-kurs studentlari</a></li>
     </ul>
 </body>
 </html>

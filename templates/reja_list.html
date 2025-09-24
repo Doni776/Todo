@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Rejalar</title>
+    <title>Rejalar ro‘yxati</title>
 </head>
 <body>
     <h1>Hamma rejalar</h1>
     <ul>
-        {% for reja in rejalar %}
+        {% for r in rejalari %}
             <li>
-                {{ reja.sarlavha }} — {{ reja.student.ism }}
-                {% if reja.bajarildi %} ✅ {% else %} ❌ {% endif %}
-                <a href="{% url 'reja_update' reja.id %}">✏️</a>
-                <a href="{% url 'reja_delete' reja.id %}">❌</a>
+                {{ r.sarlavha }} — Student: {{ r.student.ism }}
+                <a href="{% url 'reja_delete' r.pk %}">❌ O‘chirish</a>
             </li>
         {% empty %}
             <li>Rejalar yo‘q</li>
         {% endfor %}
     </ul>
 
-    <h2>➕ Yangi reja qo‘shish</h2>
+    <h2>Yangi reja qo‘shish</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Qo‘shish</button>
     </form>
+
+    <a href="{% url 'home' %}">⬅️ Bosh sahifa</a>
 </body>
 </html>

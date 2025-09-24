@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>4-kurs talabalar</title>
+</head>
+<body>
+    <h1>4-kurs talabalar</h1>
+    <ul>
+        {% for s in students %}
+            <li>{{ s.ism }} — Yosh: {{ s.yosh }}</li>
+        {% empty %}
+            <li>Talaba yo‘q</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">⬅️ Bosh sahifa</a>
+</body>
+</html>

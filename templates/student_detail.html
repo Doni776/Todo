@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Talaba Tafsilotlari</title>
+    <title>{{ student.ism }} rejalari</title>
 </head>
 <body>
-    <h1>{{ student.ism }}</h1>
-    <p>Yoshi: {{ student.yosh }}</p>
-    <p>Kursi: {{ student.kurs }}</p>
-    <a href="{% url 'student_list' %}">Ortga</a>
+    <h1>{{ student.ism }} rejalari</h1>
+    <ul>
+        {% for r in rejalari %}
+            <li>
+                {{ r.sarlavha }} —
+                {% if r.bajarildi %} ✅ Bajarilgan {% else %} ❌ Bajarilmagan {% endif %}
+            </li>
+        {% empty %}
+            <li>Bu studentda reja yo‘q</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'student_list' %}">⬅️ Studentlar ro‘yxatiga qaytish</a>
 </body>
 </html>
